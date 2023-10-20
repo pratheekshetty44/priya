@@ -28,7 +28,7 @@ int main()
 
     printf("Hello, main thread here !!!\n");
 
-    //read n1 and n2 from the user
+
     printf("Enter an integer n1 within 1 to 9: ");
     scanf("%d", &n1);
     printf("Enter an integer n2 within 1 to 9: ");

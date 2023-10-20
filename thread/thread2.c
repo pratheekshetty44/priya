@@ -1,10 +1,10 @@
-/* case 1 -> using a global variable for 'n' */
+
 
 #include <stdio.h>
 #include <pthread.h>
 #include <stdlib.h>
 
-// global variable to store the value of n
+
 
 int n = 0;
 
@@ -21,17 +21,26 @@ void *thread_function(void *arg)
 int main()
 {
     pthread_t t1[3];
-    char msg[100];
+    char msg1[100];
+    char msg2[100];
+    char msg3[100];
 
     printf("Enter the value of n: ");
     scanf("%d", &n);
 
-    for(int i=0; i<3; i++)
-    {
-        printf("Enter a message for thread %d: ", i+1);
-        scanf("%s", msg);
-        pthread_create(&t1[i], NULL, thread_function, (void *)msg);
-    }
+   
+    
+        printf("Enter a message for thread 1: ");
+        scanf("%s", msg1);
+         printf("Enter a message for thread 2: ");
+        scanf("%s", msg2);
+         printf("Enter a message for thread 3: ");
+        scanf("%s", msg3);
+
+        pthread_create(&t1[0], NULL, thread_function, (void *)msg1);
+        pthread_create(&t1[1], NULL, thread_function, (void *)msg2);
+        pthread_create(&t1[2], NULL, thread_function, (void *)msg3);
+    
 
     for(int i=0; i<3; i++)
     {
